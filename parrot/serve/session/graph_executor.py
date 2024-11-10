@@ -114,7 +114,7 @@ class GraphExecutor:
         for completion_chain in request_chain.comp_chains:
             create_task_in_loop(self._execute_coroutine(completion_chain))
 
-    async def execute(self, completion_task: CompletionTask) -> None:
+    async def execute(self, completion_task: CompletionTask) -> None: #Used to load in contexts
         """Execute a CompletionTask."""
 
         parrot_assert(completion_task.is_scheduled, "Task is not scheduled.")
