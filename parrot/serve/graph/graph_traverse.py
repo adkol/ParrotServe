@@ -46,6 +46,7 @@ def _traverse(
 
     # Producer of current variable.
     producer = var.get_producer()
+    print(var)
     if producer is None:
         return 0
 

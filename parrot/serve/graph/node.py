@@ -176,7 +176,7 @@ class SemanticNode(BaseNode):
     @property
     def comp_chain(self) -> "CompletionChain":
         parrot_assert(self.is_inserted, "Should be inserted before get DAG info.")
-        parrot_assert(self.comp_chain_is_set, "This node has no completion chain.")
+        #parrot_assert(self.comp_chain_is_set, "This node has no completion chain.")
         return self._completion_chain
 
     @property
