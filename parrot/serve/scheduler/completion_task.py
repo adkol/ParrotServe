@@ -51,6 +51,8 @@ class CompletionTask:
         self.schedule_annotation = schedule_annotation
         self.engine: Optional[ExecutionEngine] = None
 
+        self.delay_counter = 0
+
     @property
     def is_tokenized(self) -> bool:
         return self.tokenized_result is not None

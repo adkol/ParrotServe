@@ -19,7 +19,7 @@ from .completion_task import CompletionTask, TaskStatus
 
 logger = get_logger("GlobalScheduler")
 
-
+MAX_DELAY_THRESHOLD = 5
 @dataclass
 class GlobalSchedulerConfig:
     app_fifo: bool = False
@@ -27,7 +27,7 @@ class GlobalSchedulerConfig:
     ctx_group: bool = False
     ctx_aware: bool = False
     max_queue_size: int = 1024
-
+    delayCounterThreshold: int = 100
 
 class GlobalScheduler:
     """GlobalScheduler (GS) solves the task scheduling problem in the global scope."""
@@ -45,13 +45,18 @@ class GlobalScheduler:
 
         # ---------- Task Queue ----------
         self.task_queue: List[CompletionTask] = []
+        self.bad_scheduled = 0
+        self.impossible_scheduled = 0
+        self.total_scheduled = 0
+        # bad, impossible(new prefix), good
+        # good / total
 
     def _get_engine_list(
         self,
         tasks: List[CompletionTask],
         tasks_num_upperbound: int,
     ) -> List[ExecutionEngine]:
-        engine_list = self.engine_mgr.get_live_engines()
+        engine_list = self.engine_mgr.get_live_engines()    
 
         # NOTE(chaofan): Suppose all tasks noted the same "models" arg.
         models = tasks[0].chain.metadata.models
@@ -125,9 +130,24 @@ class GlobalScheduler:
             engine_ids_with_prefixes = self.context_mgr.query_prefixes_in_engines(
                 tasks[0]
             )
-            # print(engine_ids_with_prefixes)
+        # [same context, sameprefix] ["a{}", "bbbb{}", "c{}"] ->taask group if you do graph group enabled,   {1:[a], 2:[a,bbbb]}
+        # print(engine_ids_with_prefixes)
+        # COMMENT: see you can improve the task[0] thing, 
+        # or match it to biggest prefix, also measuere impossible
+        # print(engine_ids_with_prefixes)
+        # from the ready engines, check which has a prefix
+        # just put it in the one with best prefix, and let it scheddule it later - by setting delay parameter to a 10000000
+        # 3 req prefix a, 1 req prefix a 
+        # same capacity, same load
+        # do you want to build sticky machines, 
+        # how do you balance stickyness 
+        # dag optimizations, ask moshi or search it up
+        # throughput vs latency, vy controlling batchsize on diff machiens
 
         best_engine = None
+        max_counter = max(task.delay_counter for task in tasks)
+        optimal_engine_found = False
+        good_engine = False
         for engine in engine_list:
             if best_engine is None:
                 best_engine = engine
@@ -138,6 +158,8 @@ class GlobalScheduler:
             ):
                 # Context-aware engine is preferred
                 best_engine = engine
+                optimal_engine_found = True
+                good_engine = True
             else:
                 # Select the best engine (minimizing the negative impacts, i.e. minimizing the decreasing of upperbound)
                 # If the upperbound is not affected, select the engine with the most capacity.
@@ -151,12 +173,18 @@ class GlobalScheduler:
                     < best_engine.get_remain_tokens_capacity()
                 ):
                     best_engine = engine
-
+        if MAX_DELAY_THRESHOLD > max_counter and not optimal_engine_found:
+            for task in tasks:
+                task.delay_counter += 1
+            return
+        
         # Dispatch the tasks to the engine
         assert best_engine is not None
         for task in tasks:
             task.schedule_to(best_engine)
-
+        self.total_scheduled += len(tasks)
+        if not good_engine:
+            self.bad_scheduled += len(tasks)
     # ---------- Public Methods ----------
 
     def submit_task(self, task: CompletionTask) -> None:
@@ -227,7 +255,26 @@ class GlobalScheduler:
 
             # Try to find engines for the group
             self._find_engine(cur_group)
+            # 3 summarzers
+            # 1
+            #
+            '''
+            asd
+            asdfadsfasdf
+            10 summarizer tasks -> togther, on throughput machine
 
+            1 final summarizer task based on input of prev 10, on some latency machine, but after the 
+
+            once you delay something, set/dict
+            next schedule gets called
+            [dealyed, new, new, new]
+            [ l........]
+            [[d1, n1, d2], ...]
+            dict task : delayed counter
+            
+            max counter
+
+            '''
         # Update the task queue
         prev_task_queue = self.task_queue
         scheduled_task = [task for task in prev_task_queue if task.is_scheduled]
@@ -252,3 +299,79 @@ class GlobalScheduler:
             )
 
         return
+    
+
+
+
+We are in the process of testing our delay scheduling changes that are meant to increase data locality for prefix sharing but we wanted your suggestions on any general DAG scheudling optimizations we could try for parrot? 
+We feel there might be more avenues to optimize end to end request through DAG based optimization, but were wondering what kind of optimizations we might be able to look into for this?
+    '''
+    Split up group if graph group enabled in find engine, since for graph group it doesn't need to run on same engine, it just needs to finish at same time
+    Do both context and graph group enabled
+
+
+    {keshav ideas}:
+    Implement other scheduling principles at higher level:
+    1). We are looking at delay scheduling right now. We should think about our change carefully and see how effective this will be
+        and how it fits into the code. We can also look into other ways to implement delay scheduling.
+    2). We can build some notion of fairness or maybe QOE (second one is way harder) for end-to-end application. Previous works focus on 
+        request level fairness but we do not care about that I think. Also might be interesting to look into starvation, but that might have 
+        less scope.
+
+    chain style - so previously we had task group and context scheduling but now we have chain -group
+
+
+    aryan
+    do they even do performance criteria scheduling
+    eary summary throughput
+    what is graph group, is it one task group or the same query
+
+    could it be good to split task groups
+    since you are fine with delaying the tasks that are earlier in the chain, can you make those throughput requests
+
+    -interleaved is bad?? 
+    task group, context
+
+
+    (A) -> b -> d -> c -> d : latency
+    x ->latency
+
+    b -> d -> c -> d -> throughput
+    y  ->throughput
+
+    ------------- next round
+    b -> d -> c ->
+    y -> free latecy machine because u didnt put A on it
+    -----------------------------
+    if throughput is 1 can look at context group
+
+    if current group is too big, too many input tokens, to calculate this - only count shared prefixes once
+
+    split up your task group so things go on machines with context
+
+
+    a - b ->c ->d
+            x  -> dis time long as hell -> d
+            y -> d
+            z -> d
+            w -> d
+
+    a - b ->c ->d
+        z    x  -> dis time long as hell -> d
+        w    y -> d
+            
+
+    huge database async
+
+    small call
+
+    chat things were small input large output
+    summarization large input small output
+    coding is large input small output
+
+    ask moshi about other dag optimizatino cuz he said he invented parrot and did dag stuff 
+    look into batch size stuff
+    look into how to detect prefix sharing
+
+
+    '''
