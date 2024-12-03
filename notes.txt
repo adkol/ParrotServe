@@ -1,0 +1,16 @@
+edit the async stuff so that the delay is only for constnat prefixes
+
+results
+    what can we vary
+
+    we can vary the delay counter
+    we can vary the async wait period for freeing constnat prefixes 
+    we can vary the workloads
+    delay scheduling and off
+
+    what can we measure
+    
+    p99 latency
+    throughput
+    delay counters, bad scheduled count
+    

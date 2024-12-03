@@ -66,12 +66,12 @@ def discontinuous_move_tokens_kernel(
 
 @torch.inference_mode()
 def discontinuous_move_tokens(src_storage, dest_storage, src_indices, dest_indices):
-    # assert (
-    #     src_indices.shape == dest_indices.shape
-    # ), "src_indices and dest_indices must have the same shape"
-    # assert src_storage.shape[0] >= src_indices.shape[0], "src_storage is too small"
-    # assert dest_storage.shape[0] >= dest_indices.shape[0], "dest_storage is too small"
-    # assert dest_storage.shape[1:] == src_storage.shape[1:], "storage shape mismatch"
+    assert (
+        src_indices.shape == dest_indices.shape
+    ), "src_indices and dest_indices must have the same shape"
+    assert src_storage.shape[0] >= src_indices.shape[0], "src_storage is too small"
+    assert dest_storage.shape[0] >= dest_indices.shape[0], "dest_storage is too small"
+    assert dest_storage.shape[1:] == src_storage.shape[1:], "storage shape mismatch"
 
     num_tokens = src_indices.shape[0]
     num_heads, head_dim = src_storage.shape[1:]

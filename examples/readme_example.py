@@ -23,7 +23,7 @@ def format_joke(joke: P.Input, formatted_joke: P.Output):
 
 
 def main():  # Orchestrator function
-    joke = tell_me_a_joke(topic="chicken")
+    joke = tell_me_a_joke(topic="potatoes")
     joke1 = format_joke(joke)
     joke_str = joke1.get()
     print(joke_str)

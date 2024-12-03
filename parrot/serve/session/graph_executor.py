@@ -2,6 +2,7 @@
 # Licensed under the MIT license.
 
 from typing import Optional, Dict
+import asyncio
 
 from parrot.utils import get_logger, create_task_in_loop
 from parrot.exceptions import parrot_assert
@@ -94,7 +95,15 @@ class GraphExecutor:
 
         # Free the task resources.
         # TODO(chaofan): Current implementation has BUGS in stateful generation cases.
+
         self.task_creator.free_task(task)
+        #asyncio.create_task(self.free_context_async(task))
+        self.context_mgr.free_task_contexts(task)
+    
+    async def free_context_async(self,task) -> None:
+        print("Before sleep")
+        await asyncio.sleep(1)
+        print("after sleep")
         self.context_mgr.free_task_contexts(task)
 
     def exception_interrupt(self, exception: BaseException):

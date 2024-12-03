@@ -1,7 +1,7 @@
 {
     "engine_name": "vicuna-7b-v1.3_local",
     "model": "lmsys/vicuna-7b-v1.3",
-    "host": "0.0.0.0",
+    "host": "node1",
     "port": 9001,
     "engine_type": "builtin",
     "random_seed": 0,

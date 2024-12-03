@@ -1,0 +1,37 @@
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 38479.85it/s]
+/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Traceback (most recent call last):
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/http_server.py", line 194, in <module>
+    start_server(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/http_server.py", line 78, in start_server
+    llm_engine = create_engine(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/engine_creator.py", line 54, in create_engine
+    return BuiltinEngine(engine_config, connect_to_core)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/builtin/builtin_engine.py", line 39, in __init__
+    self.runner = BuiltinRunner(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/builtin/builtin_runner.py", line 59, in __init__
+    self.model = instantiate_model(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/builtin/model_instantiation.py", line 77, in instantiate_model
+    model.load_weights(model_name)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/builtin/models/llama.py", line 240, in load_weights
+    for weight_name, weight_value in hf_weights_loader(model_name_or_path):
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/builtin/models/weight_utils.py", line 45, in hf_weights_loader
+    state = torch.load(bin_file, map_location="cpu", weights_only=True)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/serialization.py", line 1007, in load
+    return _load(opened_zipfile,
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/serialization.py", line 1422, in _load
+    result = unpickler.load()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/_weights_only_unpickler.py", line 259, in load
+    self.append(self.persistent_load(pid))
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/serialization.py", line 1392, in persistent_load
+    typed_storage = load_tensor(dtype, nbytes, key, _maybe_decode_ascii(location))
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/serialization.py", line 1357, in load_tensor
+    storage = zip_file.get_storage_from_record(name, numel, torch.UntypedStorage)._typed_storage()._untyped_storage
+KeyboardInterrupt

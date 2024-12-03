@@ -53,11 +53,15 @@ def _traverse(
     if isinstance(producer, PlaceholderGen):
         chain: CompletionChain = producer.comp_chain
 
+        
+            
         if var.is_activated:
             return var.depth
-
+        if not chain:
+            var.activate(criteria, depth)
+            return var.depth
         # Add the chain to chain group.
-        if chain_group is not None:
+        if chain_group is not None :
             chain_group.chains.add(chain)
             chain.chain_groups.append(chain_group)
 
@@ -99,5 +103,3 @@ def activate_sv(var: SemanticVariable, criteria: PerformanceCriteria) -> None:
     parrot_assert(not var.is_activated, "Variable is already activated.")
     _traverse(var, criteria=criteria)
 
-
-_traverse

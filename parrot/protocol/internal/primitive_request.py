@@ -47,6 +47,8 @@ class Fill(Primitive):
     def post(self, engine_url: str) -> FillResponse:
         try:
             st = time_counter_in_nanoseconds()
+            print("SENDING FILL TO ENGINE")
+
             resp: FillResponse = send_http_request(
                 response_cls=FillResponse,
                 http_addr=engine_url,

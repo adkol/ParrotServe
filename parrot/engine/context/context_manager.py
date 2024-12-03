@@ -28,9 +28,9 @@ class EngineContextManager:
             # Fill/Generation, but it is freed because of Exception in the frontend.
             # In this case, we should just return 0.
             return 0
-        
         context = self.map.pop(context_id)
         context_len = context.get_this_context_len()
+        print("Freeing Context: ", context_id, " ",  context_len)
         context.destruction()
         return context_len
 

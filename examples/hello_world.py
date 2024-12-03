@@ -27,7 +27,7 @@ vm = P.VirtualMachine(
 # LLMs to print the exact the same string we want.
 
 
-@P.semantic_function(model_type="text")
+@P.semantic_function()
 def llm_print(string: P.Input, output: P.Output):
     """You are a repeater. Given a string, it is your job to print it out.
     User input: {{string}}
@@ -36,7 +36,11 @@ def llm_print(string: P.Input, output: P.Output):
 
 # Then we can start to define the main function.
 def main():
+    print("DONE0")
+
     output = llm_print("Hello World!")  # print by the semantic code
+    print("DONE1")
+    
     print(output.get(P.PerformanceCriteria.LATENCY))  # print by the native code
 
 

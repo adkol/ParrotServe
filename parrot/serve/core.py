@@ -206,6 +206,10 @@ class ParrotServeCore:
         """
 
         session_id = payload["session_id"]
+        print("GOT SEMANTIC CALL")
+        # print("SUBMIT SUMIT SUBOJ", payload)
+        # print("\n")
+        # print("WELWELWEL")
 
         # The design of Parrot's completion API is asynchronous. We split up the "request"
         # into "submit" and "get" operations.
@@ -215,7 +219,6 @@ class ParrotServeCore:
         self.session_mgr.check_session_status(session_id)
         self.session_mgr.session_access_update(session_id)
 
-        # Add the request to the session.
         session = self.session_mgr.get_session(session_id)
         request_id, param_info = session.add_request(payload, is_native=False)
 

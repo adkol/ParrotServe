@@ -1,0 +1,1337 @@
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 39016.78it/s]
+/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+INFO:     Started server process [184768]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://node2:9001 (Press CTRL+C to quit)
+INFO:     10.10.1.1:36032 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36034 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36050 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36064 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46210 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46224 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46212 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46228 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46250 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46252 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46232 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46238 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46264 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46280 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46314 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46332 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46356 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  61   1
+INFO:     10.10.1.1:46362 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46344 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  60   9
+INFO:     10.10.1.1:46378 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  59   14
+INFO:     10.10.1.1:46384 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   10
+INFO:     10.10.1.1:46388 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  66   8
+INFO:     10.10.1.1:46404 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  65   21
+INFO:     10.10.1.1:46420 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46350 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  57   21
+INFO:     10.10.1.1:46440 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  56   8
+INFO:     10.10.1.1:46454 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  55   19
+INFO:     10.10.1.1:46464 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46424 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46470 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46476 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46298 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46492 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  49   48
+INFO:     10.10.1.1:46504 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  48   8
+INFO:     10.10.1.1:46512 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  47   9
+INFO:     10.10.1.1:46520 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46284 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  53   63
+INFO:     10.10.1.1:46536 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   8
+INFO:     10.10.1.1:46550 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  51   8
+INFO:     10.10.1.1:46564 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46494 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  59   30
+INFO:     10.10.1.1:46580 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   9
+INFO:     10.10.1.1:46590 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  61   10
+INFO:     10.10.1.1:46594 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46322 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46600 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  64   123
+INFO:     10.10.1.1:46610 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  63   8
+INFO:     10.10.1.1:46612 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  62   11
+INFO:     10.10.1.1:46622 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46630 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46640 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46654 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46660 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46676 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46680 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46694 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46700 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46710 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46726 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46754 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46760 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46766 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46728 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  52   7
+INFO:     10.10.1.1:46798 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46738 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  53   8
+INFO:     10.10.1.1:46808 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  15   9
+INFO:     10.10.1.1:46822 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46788 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  61   12
+INFO:     10.10.1.1:46836 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   8
+INFO:     10.10.1.1:46838 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  59   8
+INFO:     10.10.1.1:46854 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  17   17
+INFO:     10.10.1.1:46868 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:46870 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   12
+INFO:     10.10.1.1:46872 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46576 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46792 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  65   132
+INFO:     10.10.1.1:46878 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  66   8
+INFO:     10.10.1.1:46882 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   14
+INFO:     10.10.1.1:57352 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  26   98
+INFO:     10.10.1.1:57358 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  25   9
+INFO:     10.10.1.1:57374 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  24   9
+INFO:     10.10.1.1:57388 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46876 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57404 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57418 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57428 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57434 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57460 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57476 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57480 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57438 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57494 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57506 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  15   7
+INFO:     10.10.1.1:57520 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   8
+INFO:     10.10.1.1:57528 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   17
+INFO:     10.10.1.1:57530 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57568 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57574 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57560 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46772 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  73   30
+INFO:     10.10.1.1:57586 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   8
+INFO:     10.10.1.1:57594 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  75   19
+INFO:     10.10.1.1:57608 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   195
+INFO:     10.10.1.1:57620 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:57636 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   12
+INFO:     10.10.1.1:57650 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57584 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  52   74
+INFO:     10.10.1.1:57656 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   8
+INFO:     10.10.1.1:57668 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  15   10
+INFO:     10.10.1.1:57682 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57544 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  59   104
+INFO:     10.10.1.1:57690 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   9
+INFO:     10.10.1.1:57706 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  61   13
+INFO:     10.10.1.1:57716 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57724 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57726 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57734 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57740 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57752 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57762 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57764 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57772 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57798 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  26   34
+INFO:     10.10.1.1:57810 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  25   8
+INFO:     10.10.1.1:57816 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  24   8
+INFO:     10.10.1.1:57820 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57828 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57832 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57784 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  75   68
+INFO:     10.10.1.1:57840 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   8
+INFO:     10.10.1.1:57856 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  73   14
+INFO:     10.10.1.1:57872 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57894 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57904 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57790 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  44   98
+INFO:     10.10.1.1:57930 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   9
+INFO:     10.10.1.1:57940 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   7
+INFO:     10.10.1.1:57952 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57792 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57884 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  17   127
+INFO:     10.10.1.1:57972 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:57974 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   8
+INFO:     10.10.1.1:57980 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57490 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  34   54
+INFO:     10.10.1.1:35378 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:35390 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  32   17
+INFO:     10.10.1.1:35398 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  22   303
+INFO:     10.10.1.1:35404 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  21   8
+INFO:     10.10.1.1:35408 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  20   13
+INFO:     10.10.1.1:35410 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57956 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35416 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35426 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35442 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35448 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35454 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35472 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35502 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35488 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35508 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35466 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35516 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  30   22
+INFO:     10.10.1.1:35518 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  29   8
+INFO:     10.10.1.1:35528 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  28   9
+INFO:     10.10.1.1:35540 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  76   21
+INFO:     10.10.1.1:35556 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   8
+INFO:     10.10.1.1:35572 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57914 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  10   10
+INFO:     10.10.1.1:35584 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   36
+INFO:     10.10.1.1:35592 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   9
+INFO:     10.10.1.1:35598 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   14
+INFO:     10.10.1.1:35606 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:57448 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  71   40
+INFO:     10.10.1.1:35620 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  70   9
+INFO:     10.10.1.1:35624 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  69   20
+INFO:     10.10.1.1:35630 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  5   157
+INFO:     10.10.1.1:35636 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  6   8
+INFO:     10.10.1.1:35638 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  7   13
+INFO:     10.10.1.1:35644 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   414
+INFO:     10.10.1.1:35646 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:35656 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   8
+INFO:     10.10.1.1:35666 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35690 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35700 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35704 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35708 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35674 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35720 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35736 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35738 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35752 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35766 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35806 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35790 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35824 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  34   2
+INFO:     10.10.1.1:35826 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:35832 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  32   17
+INFO:     10.10.1.1:35846 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   6
+INFO:     10.10.1.1:35858 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   9
+INFO:     10.10.1.1:35864 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   18
+INFO:     10.10.1.1:35874 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35816 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35808 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  69   31
+INFO:     10.10.1.1:35888 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  70   8
+INFO:     10.10.1.1:35900 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  71   9
+INFO:     10.10.1.1:35904 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  7   40
+INFO:     10.10.1.1:35906 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  6   8
+INFO:     10.10.1.1:35920 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  5   8
+INFO:     10.10.1.1:35934 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35884 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35886 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35944 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35962 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35972 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35976 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35978 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36004 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36016 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35778 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  53   117
+INFO:     10.10.1.1:36026 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   8
+INFO:     10.10.1.1:36030 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  77   14
+INFO:     10.10.1.1:36044 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35994 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  32   34
+INFO:     10.10.1.1:36070 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:36084 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36066 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  34   19
+INFO:     10.10.1.1:36096 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36060 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36068 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  1   20
+INFO:     10.10.1.1:36110 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:36112 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   20
+INFO:     10.10.1.1:36124 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:35956 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  73   23
+INFO:     10.10.1.1:36126 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   9
+INFO:     10.10.1.1:36138 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  75   13
+INFO:     10.10.1.1:36140 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36020 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  36   64
+INFO:     10.10.1.1:36156 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   8
+INFO:     10.10.1.1:36170 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   14
+INFO:     10.10.1.1:36180 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   71
+INFO:     10.10.1.1:36190 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:36200 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   11
+INFO:     10.10.1.1:36212 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36222 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36240 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36228 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  59   7
+INFO:     10.10.1.1:36242 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   8
+INFO:     10.10.1.1:36248 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  61   10
+INFO:     10.10.1.1:36250 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36264 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36278 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36282 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36292 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36318 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36334 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36348 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36362 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36374 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36412 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36422 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36428 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36400 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  64   16
+INFO:     10.10.1.1:46112 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  63   8
+INFO:     10.10.1.1:46124 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36440 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  62   12
+INFO:     10.10.1.1:46134 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   24
+INFO:     10.10.1.1:46144 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   9
+INFO:     10.10.1.1:46156 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  36   12
+INFO:     10.10.1.1:46166 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   30
+INFO:     10.10.1.1:46182 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:46190 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   17
+INFO:     10.10.1.1:46206 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46208 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46214 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46216 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36302 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46218 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46226 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46242 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  44   122
+INFO:     10.10.1.1:46248 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:46258 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   8
+INFO:     10.10.1.1:46262 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46302 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36442 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  61   134
+INFO:     10.10.1.1:46316 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   9
+INFO:     10.10.1.1:46318 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46290 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  59   8
+INFO:     10.10.1.1:46334 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46266 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  32   21
+INFO:     10.10.1.1:46342 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   9
+INFO:     10.10.1.1:46346 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  34   14
+INFO:     10.10.1.1:46364 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  36   23
+INFO:     10.10.1.1:46386 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   8
+INFO:     10.10.1.1:46398 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   19
+INFO:     10.10.1.1:46410 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46274 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46370 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  41   63
+INFO:     10.10.1.1:46418 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:46430 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   13
+INFO:     10.10.1.1:46444 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46456 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46466 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46480 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46498 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46514 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46526 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46540 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46552 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46496 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  1   11
+INFO:     10.10.1.1:46558 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:36386 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:46570 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   9
+INFO:     10.10.1.1:46578 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  75   242
+INFO:     10.10.1.1:46586 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   8
+INFO:     10.10.1.1:46596 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  73   9
+INFO:     10.10.1.1:46602 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46642 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46656 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46670 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46678 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46626 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  59   10
+INFO:     10.10.1.1:46682 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   9
+INFO:     10.10.1.1:46696 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  61   10
+INFO:     10.10.1.1:46702 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46732 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46744 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46714 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46730 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  39   14
+INFO:     10.10.1.1:46768 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:46774 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   7
+INFO:     10.10.1.1:46790 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46620 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  15   16
+INFO:     10.10.1.1:46794 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  20   8
+INFO:     10.10.1.1:46810 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  21   8
+INFO:     10.10.1.1:46824 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   71
+INFO:     10.10.1.1:46840 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   8
+INFO:     10.10.1.1:46842 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  77   10
+INFO:     10.10.1.1:46850 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46608 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46632 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  10   111
+INFO:     10.10.1.1:46862 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   8
+INFO:     10.10.1.1:46874 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:46762 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  76   12
+INFO:     10.10.1.1:46884 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   122
+INFO:     10.10.1.1:56036 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:56050 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  17   14
+INFO:     10.10.1.1:56062 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   83
+INFO:     10.10.1.1:56072 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:56080 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   12
+INFO:     10.10.1.1:56088 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56126 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56134 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56112 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56094 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56098 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56146 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56152 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56168 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56178 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56188 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56196 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56202 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56244 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  17   4
+INFO:     10.10.1.1:56258 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   9
+INFO:     10.10.1.1:56268 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   14
+INFO:     10.10.1.1:56274 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56230 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  59   50
+INFO:     10.10.1.1:56286 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   8
+INFO:     10.10.1.1:56288 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  61   13
+INFO:     10.10.1.1:56296 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56306 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56322 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56338 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56208 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  1   79
+INFO:     10.10.1.1:56346 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   9
+INFO:     10.10.1.1:56350 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   13
+INFO:     10.10.1.1:56358 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56388 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56402 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56418 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56228 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  76   110
+INFO:     10.10.1.1:56434 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   8
+INFO:     10.10.1.1:56436 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  10   11
+INFO:     10.10.1.1:56442 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56250 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  34   128
+INFO:     10.10.1.1:56444 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:56456 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  32   10
+INFO:     10.10.1.1:56466 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56474 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56478 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56486 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56372 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56488 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  3   116
+INFO:     10.10.1.1:56518 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:56534 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  17   9
+INFO:     10.10.1.1:56550 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  10   35
+INFO:     10.10.1.1:56556 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   8
+INFO:     10.10.1.1:56572 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  76   10
+INFO:     10.10.1.1:56582 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56502 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56586 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56608 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56622 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56640 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56654 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56430 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56634 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  36   10
+INFO:     10.10.1.1:56668 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56222 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  35   9
+INFO:     10.10.1.1:56678 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   20
+INFO:     10.10.1.1:56690 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  15   183
+INFO:     10.10.1.1:56704 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  20   9
+INFO:     10.10.1.1:51800 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  21   12
+INFO:     10.10.1.1:51802 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   31
+INFO:     10.10.1.1:51812 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:51814 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   19
+INFO:     10.10.1.1:51822 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  75   295
+INFO:     10.10.1.1:51826 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   8
+INFO:     10.10.1.1:51840 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56406 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  73   9
+INFO:     10.10.1.1:51852 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:56602 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  64   250
+INFO:     10.10.1.1:51864 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  63   9
+INFO:     10.10.1.1:51878 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  62   7
+INFO:     10.10.1.1:51884 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  32   105
+INFO:     10.10.1.1:51896 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:51906 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  34   13
+INFO:     10.10.1.1:51908 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51922 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51910 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51934 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51936 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51946 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51952 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51954 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51962 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51978 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:51992 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52002 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52004 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52012 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52066 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  44   14
+INFO:     10.10.1.1:52068 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:52074 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   14
+INFO:     10.10.1.1:52076 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  77   12
+INFO:     10.10.1.1:52084 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52024 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  52   8
+INFO:     10.10.1.1:52088 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   9
+INFO:     10.10.1.1:52098 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52046 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  13   28
+INFO:     10.10.1.1:52104 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52056 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  47   9
+INFO:     10.10.1.1:52114 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  48   18
+INFO:     10.10.1.1:52124 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  55   48
+INFO:     10.10.1.1:52132 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  56   8
+INFO:     10.10.1.1:52136 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  22   8
+INFO:     10.10.1.1:52148 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  34   61
+INFO:     10.10.1.1:52160 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:52172 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  32   8
+INFO:     10.10.1.1:52184 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52130 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52198 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52222 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52226 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52230 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52244 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52248 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52258 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52260 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52276 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52310 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  17   10
+INFO:     10.10.1.1:52330 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52212 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:52336 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   20
+INFO:     10.10.1.1:52342 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52314 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  1   51
+INFO:     10.10.1.1:52356 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   9
+INFO:     10.10.1.1:52372 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   9
+INFO:     10.10.1.1:52382 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  32   38
+INFO:     10.10.1.1:52384 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:52390 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  34   12
+INFO:     10.10.1.1:52392 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52292 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  75   103
+INFO:     10.10.1.1:52402 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   9
+INFO:     10.10.1.1:52412 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  73   14
+INFO:     10.10.1.1:52416 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52034 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52422 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52430 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  62   284
+INFO:     10.10.1.1:52446 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  63   8
+INFO:     10.10.1.1:52448 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  64   8
+INFO:     10.10.1.1:52450 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52468 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52464 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52478 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52488 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52496 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52526 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52542 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52546 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48156 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  77   9
+INFO:     10.10.1.1:48188 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   8
+INFO:     10.10.1.1:48194 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   18
+INFO:     10.10.1.1:48196 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48180 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  10   24
+INFO:     10.10.1.1:48198 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   8
+INFO:     10.10.1.1:48212 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  76   21
+INFO:     10.10.1.1:48228 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52296 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48242 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  61   214
+INFO:     10.10.1.1:48248 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   8
+INFO:     10.10.1.1:48254 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  59   14
+INFO:     10.10.1.1:48266 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48272 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48280 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48294 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48310 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48316 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52522 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  34   152
+INFO:     10.10.1.1:48346 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  33   8
+INFO:     10.10.1.1:48360 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  32   9
+INFO:     10.10.1.1:48374 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48332 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:52510 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  24   57
+INFO:     10.10.1.1:48384 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48320 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  25   8
+INFO:     10.10.1.1:48398 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  26   14
+INFO:     10.10.1.1:48406 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   181
+INFO:     10.10.1.1:48416 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:48422 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   9
+INFO:     10.10.1.1:48426 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48172 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  76   79
+INFO:     10.10.1.1:48440 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   8
+INFO:     10.10.1.1:48456 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  10   10
+INFO:     10.10.1.1:48472 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   189
+INFO:     10.10.1.1:48474 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:48486 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   10
+INFO:     10.10.1.1:48500 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48510 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48522 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48534 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48544 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48552 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48560 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48570 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48610 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48616 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48624 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48598 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  36   37
+INFO:     10.10.1.1:48660 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   9
+INFO:     10.10.1.1:48666 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   8
+INFO:     10.10.1.1:48670 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48674 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48690 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48704 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48640 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  73   15
+INFO:     10.10.1.1:58324 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   8
+INFO:     10.10.1.1:58338 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  75   14
+INFO:     10.10.1.1:58352 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   38
+INFO:     10.10.1.1:58368 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:58372 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  17   8
+INFO:     10.10.1.1:58380 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48586 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  55   124
+INFO:     10.10.1.1:58390 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  56   8
+INFO:     10.10.1.1:58398 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  22   8
+INFO:     10.10.1.1:58412 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58418 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58432 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48654 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  61   90
+INFO:     10.10.1.1:58434 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   8
+INFO:     10.10.1.1:58442 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  59   9
+INFO:     10.10.1.1:58450 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58452 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58462 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58478 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58482 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58506 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58508 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58500 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58520 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58514 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  76   17
+INFO:     10.10.1.1:58526 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   8
+INFO:     10.10.1.1:58528 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  10   10
+INFO:     10.10.1.1:58530 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   12
+INFO:     10.10.1.1:58538 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:58552 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48296 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  1   8
+INFO:     10.10.1.1:58568 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  17   16
+INFO:     10.10.1.1:58574 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:58576 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   9
+INFO:     10.10.1.1:58580 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   375
+INFO:     10.10.1.1:58592 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   8
+INFO:     10.10.1.1:58594 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  77   13
+INFO:     10.10.1.1:58600 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58616 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58630 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58646 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58660 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58668 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58682 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58684 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58690 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48630 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58486 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  48   245
+INFO:     10.10.1.1:58694 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  47   9
+INFO:     10.10.1.1:58702 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  13   9
+INFO:     10.10.1.1:58704 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  75   122
+INFO:     10.10.1.1:58720 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  74   8
+INFO:     10.10.1.1:58734 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  73   13
+INFO:     10.10.1.1:58740 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58770 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  10   4
+INFO:     10.10.1.1:58800 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  11   9
+INFO:     10.10.1.1:58806 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  76   14
+INFO:     10.10.1.1:58820 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58754 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  1   37
+INFO:     10.10.1.1:58832 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   9
+INFO:     10.10.1.1:58844 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   14
+INFO:     10.10.1.1:58854 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58866 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58872 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58888 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58890 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58892 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58922 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58908 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58944 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58900 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  5   30
+INFO:     10.10.1.1:58968 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  6   8
+INFO:     10.10.1.1:58984 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  7   14
+INFO:     10.10.1.1:44328 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58776 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  3   174
+INFO:     10.10.1.1:44336 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:44346 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  17   11
+INFO:     10.10.1.1:44350 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44352 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44364 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58788 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44380 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44382 - "POST /fill HTTP/1.1" 200 OK
+Freeing Context:  24   197
+INFO:     10.10.1.1:44396 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  25   8
+INFO:     10.10.1.1:44410 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  26   13
+INFO:     10.10.1.1:44424 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44458 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44468 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44436 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  62   14
+INFO:     10.10.1.1:44492 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  63   8
+INFO:     10.10.1.1:44506 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  64   17
+INFO:     10.10.1.1:44522 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58928 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58960 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:58906 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  69   157
+INFO:     10.10.1.1:44526 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  70   8
+INFO:     10.10.1.1:44528 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44450 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  71   13
+INFO:     10.10.1.1:44536 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44484 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  55   159
+INFO:     10.10.1.1:44548 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  56   8
+INFO:     10.10.1.1:44552 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  22   8
+INFO:     10.10.1.1:44560 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   190
+INFO:     10.10.1.1:44574 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   9
+INFO:     10.10.1.1:44578 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   10
+INFO:     10.10.1.1:44592 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  36   92
+INFO:     10.10.1.1:44604 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   8
+INFO:     10.10.1.1:44610 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  67   9
+INFO:     10.10.1.1:44612 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  26   85
+INFO:     10.10.1.1:44616 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  25   8
+INFO:     10.10.1.1:44624 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  24   14
+INFO:     10.10.1.1:44632 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44640 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44656 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44668 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44680 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44688 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44696 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44700 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44702 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44714 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44728 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44744 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44748 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44772 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44776 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  22   4
+INFO:     10.10.1.1:44814 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  56   8
+INFO:     10.10.1.1:44826 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44764 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  55   20
+INFO:     10.10.1.1:44830 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   4
+INFO:     10.10.1.1:44844 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   8
+INFO:     10.10.1.1:44848 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44798 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  41   13
+INFO:     10.10.1.1:44864 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44786 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  71   14
+INFO:     10.10.1.1:44876 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  70   8
+INFO:     10.10.1.1:44878 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  69   12
+INFO:     10.10.1.1:44882 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44804 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  67   18
+INFO:     10.10.1.1:44892 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   8
+INFO:     10.10.1.1:44908 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  36   9
+INFO:     10.10.1.1:44920 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  21   26
+INFO:     10.10.1.1:44922 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  20   8
+INFO:     10.10.1.1:44930 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  15   14
+INFO:     10.10.1.1:44932 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  24   46
+INFO:     10.10.1.1:44944 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  25   9
+INFO:     10.10.1.1:44954 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  26   14
+INFO:     10.10.1.1:44956 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44934 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44942 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44966 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44970 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44996 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45002 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45018 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45026 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45042 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45044 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45058 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45062 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45082 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45088 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  44   6
+INFO:     10.10.1.1:45114 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:45124 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   9
+INFO:     10.10.1.1:45138 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  15   6
+INFO:     10.10.1.1:45144 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  20   8
+INFO:     10.10.1.1:45148 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  21   8
+INFO:     10.10.1.1:45152 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44992 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  55   44
+INFO:     10.10.1.1:45156 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  56   8
+INFO:     10.10.1.1:45158 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  22   10
+INFO:     10.10.1.1:45168 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45100 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  17   63
+INFO:     10.10.1.1:47556 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  68   8
+INFO:     10.10.1.1:47560 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  3   8
+INFO:     10.10.1.1:47562 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47538 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47544 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47568 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47584 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47586 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47592 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47620 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47632 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47616 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  21   4
+INFO:     10.10.1.1:47662 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  20   9
+INFO:     10.10.1.1:47664 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:44980 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  15   8
+INFO:     10.10.1.1:47666 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:45076 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  41   144
+INFO:     10.10.1.1:47678 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47608 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  40   9
+INFO:     10.10.1.1:47686 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   14
+INFO:     10.10.1.1:47700 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  36   134
+INFO:     10.10.1.1:47724 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   8
+INFO:     10.10.1.1:47730 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47654 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  67   12
+INFO:     10.10.1.1:47746 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47648 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  1   18
+INFO:     10.10.1.1:47756 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   9
+INFO:     10.10.1.1:47764 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   14
+INFO:     10.10.1.1:47766 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   24
+INFO:     10.10.1.1:47778 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   8
+INFO:     10.10.1.1:47780 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  77   21
+INFO:     10.10.1.1:47796 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  24   26
+INFO:     10.10.1.1:47812 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  25   8
+INFO:     10.10.1.1:47822 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  26   19
+INFO:     10.10.1.1:47828 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47708 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47842 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47844 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47850 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47872 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47878 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47880 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47896 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47862 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47864 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  15   60
+INFO:     10.10.1.1:47936 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  20   8
+INFO:     10.10.1.1:47940 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  21   14
+INFO:     10.10.1.1:47946 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  39   60
+INFO:     10.10.1.1:47948 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  40   9
+INFO:     10.10.1.1:47960 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  41   10
+INFO:     10.10.1.1:47968 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47904 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47918 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47924 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47932 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48018 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48024 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48040 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48050 - "POST /fill HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47972 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47984 - "POST /generate HTTP/1.1" 200 OK
+INFO:     10.10.1.1:47998 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  67   26
+INFO:     10.10.1.1:48060 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  35   8
+INFO:     10.10.1.1:48066 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  36   8
+INFO:     10.10.1.1:48072 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  44   25
+INFO:     10.10.1.1:48088 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  45   8
+INFO:     10.10.1.1:48102 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  1   8
+INFO:     10.10.1.1:48104 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  77   40
+INFO:     10.10.1.1:48118 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  52   9
+INFO:     10.10.1.1:48128 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  53   8
+INFO:     10.10.1.1:48138 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48154 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  28   18
+INFO:     10.10.1.1:48164 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  29   8
+INFO:     10.10.1.1:48174 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  30   12
+INFO:     10.10.1.1:48184 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  54   1241
+INFO:     10.10.1.1:48186 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  50   914
+INFO:     10.10.1.1:48202 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  58   278
+INFO:     10.10.1.1:48208 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48160 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  43   1017
+INFO:     10.10.1.1:48218 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  61   100
+INFO:     10.10.1.1:48220 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  60   9
+INFO:     10.10.1.1:48236 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  59   9
+INFO:     10.10.1.1:48252 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  18   281
+INFO:     10.10.1.1:48258 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  2   1244
+INFO:     10.10.1.1:48274 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  46   1020
+INFO:     10.10.1.1:48286 - "POST /free_context HTTP/1.1" 200 OK
+INFO:     10.10.1.1:48004 - "POST /generate HTTP/1.1" 200 OK
+Freeing Context:  26   269
+INFO:     10.10.1.1:46556 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  25   8
+INFO:     10.10.1.1:46560 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  24   9
+INFO:     10.10.1.1:46574 - "POST /free_context HTTP/1.1" 200 OK
+Freeing Context:  14   917
+INFO:     10.10.1.1:46580 - "POST /free_context HTTP/1.1" 200 OK
+Exception in thread Thread-1 (_heartbeat_daemon):
+Traceback (most recent call last):
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/connection.py", line 199, in _new_conn
+    sock = connection.create_connection(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/connection.py", line 441, in request
+    self.endheaders()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/connection.py", line 279, in connect
+    self.sock = self._new_conn()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/connection.py", line 214, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f7aa4d8ac50>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='node0', port=9000): Max retries exceeded with url: /engine_heartbeat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7aa4d8ac50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/llm_engine.py", line 155, in _heartbeat_daemon
+    self.heartbeat()  # Send heartbeat to ServeCore
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/llm_engine.py", line 144, in heartbeat
+    resp = engine_heartbeat(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/protocol/internal/layer_apis.py", line 138, in engine_heartbeat
+    raise e
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/protocol/internal/layer_apis.py", line 125, in engine_heartbeat
+    return send_http_request(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/protocol/http_utils.py", line 56, in send_http_request
+    raise error
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/protocol/http_utils.py", line 34, in send_http_request
+    resp = requests.post(url, json=kwargs, timeout=timeout)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='node0', port=9000): Max retries exceeded with url: /engine_heartbeat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7aa4d8ac50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [184768]
+Traceback (most recent call last):
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/http_server.py", line 194, in <module>
+    start_server(
+  File "/proj/michigan-bigdata-PG0/groups/parrot/ParrotServe/parrot/engine/http_server.py", line 96, in start_server
+    loop.run_until_complete(uvicorn_server.serve())
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/asyncio/base_events.py", line 603, in run_forever
+    self._run_once()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/asyncio/base_events.py", line 1909, in _run_once
+    handle._run()
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/uvicorn/server.py", line 68, in serve
+    with self.capture_signals():
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "/proj/michigan-bigdata-PG0/groups/parrot/miniconda3/envs/parrot/lib/python3.10/site-packages/uvicorn/server.py", line 332, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt

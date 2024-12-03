@@ -161,6 +161,7 @@ class SemanticVariableManager:
         self._constant_prefix_last_access_time[pc_var.id] = (
             time_counter_in_nanoseconds()
         )
+        print("Added 164", pc_var.id)
         return pc_var
 
     def _get_local_var_by_content(
@@ -230,10 +231,12 @@ class SemanticVariableManager:
                 )
                 self.constant_prefix_namespace.free_var(var)
                 self._constant_prefix_last_access_time.pop(var_id)
+                # assert(var_id in self._const)
                 ret.append(var)
                 logger.debug(f"Constant Prefix Variable (id={var_id}) expired.")
-
-        return ret
+        if ret:
+            print("expired", [val.id for val in ret])
+        return list(set(ret))
 
     def create_var(self, session_id: int, var_name: str) -> SemanticVariable:
         """Create a Semantic Variable in the local namespace.

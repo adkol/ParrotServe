@@ -107,11 +107,17 @@ class Session:
             session_id=self.session_id,
             payload=request_payload,
         )
-
+        # print("Chunked request metadata: ", chunked_request.metadata)
+        # print("Chunked request body: ", chunked_request.body)
+        # print("Chunked request parameters_map: ", chunked_request.parameters_map)
         # Prefix matching and splitting.
 
         # Convert the ChunkedRequest to a RequestChain.
         request_chain = RequestChain.from_chunked_request(chunked_request)
+        # print("Request Chain: ", chunked_request.metadata)
+        # print("Chunked request body: ", chunked_request.body)
+        # print("Chunked request parameters_map: ", chunked_request.parameters_map)
+
 
         # Assign Semantic Variables to the RequestChain.
         self.var_mgr.create_vars_for_semantic_request_chain(
@@ -181,10 +187,13 @@ class Session:
         # Get the request id.
         request_id = self._request_id_counter
         self._request_id_counter += 1
+        print("adding request1")
 
         if is_native:
             param_info = self._add_py_native_request(request_id, request_payload)
         else:
+            print("adding request")
+
             param_info = self._add_semantic_request(request_id, request_payload)
 
         return request_id, param_info

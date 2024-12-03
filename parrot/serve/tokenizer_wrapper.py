@@ -32,7 +32,7 @@ class TokenizersWrapper:
 
     def remove_tokenizer(self, tokenizer_name: str):
         """Remove a tokenizer from the server."""
-
+        return
         parrot_assert(
             tokenizer_name in self.tokenizers,
             f"Tokenizer {tokenizer_name} does not exist.",
@@ -40,6 +40,7 @@ class TokenizersWrapper:
         self.tokenizers.pop(tokenizer_name)
 
     def get_tokenizer(self, tokenizer_name: str):
+        print(self.tokenizers.keys())
         parrot_assert(
             tokenizer_name in self.tokenizers,
             f"Tokenizer {tokenizer_name} does not exist.",

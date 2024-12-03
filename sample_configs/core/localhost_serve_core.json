@@ -7,8 +7,9 @@
     "global_scheduler": {
         "app_fifo": false,
         "graph_group": false,
-        "ctx_group": false,
-        "ctx_aware": false,
+        "ctx_group": true,
+        "ctx_aware": true,
         "max_queue_size": 2048
-    }
+    },
+    "constant_prefix_var_timeout": 3
 }
