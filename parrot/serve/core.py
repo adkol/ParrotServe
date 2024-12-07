@@ -74,6 +74,7 @@ class ParrotServeCore:
             config=gs_config,
             engine_mgr=self.engine_mgr,
             context_mgr=self.context_mgr,
+            var_mgr=self.var_mgr
         )
 
         self.session_mgr = SessionManager(

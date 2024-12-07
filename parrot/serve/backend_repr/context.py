@@ -32,11 +32,12 @@ class Context:
         context_id: int,
         engine: ExecutionEngine,
         parent_context: Optional["Context"] = None,
+        is_constant = False
     ):
         self.context_id = context_id
         self.engine = engine
         self.parent_context = parent_context
-
+        self.is_constant = is_constant
         # Events.
         self.start_event = (
             Event()

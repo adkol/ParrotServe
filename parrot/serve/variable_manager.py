@@ -208,7 +208,7 @@ class SemanticVariableManager:
 
         self.session_namespaces.pop(session_id)
 
-    def free_expired_constant_prefix_vars(self) -> List[SemanticVariable]:
+    def free_expired_constant_prefix_vars(self, ) -> List[SemanticVariable]:
         """Free expired constant prefix variables.
 
         Returns:
@@ -223,7 +223,7 @@ class SemanticVariableManager:
         ):
             if (
                 cur_time - last_access_time
-                > self.constant_prefix_var_timeout * 1_000_000_000
+                > self.constant_prefix_var_timeout * 1_000_000_000_000
             ):
                 var = self.constant_prefix_namespace.get_var_by_id(var_id)
                 parrot_assert(

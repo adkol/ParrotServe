@@ -12,6 +12,7 @@ from parrot.exceptions import parrot_assert, ParrotCoreInternalError
 from parrot.serve.backend_repr import Context, ExecutionEngine
 from parrot.serve.scheduler import CompletionTask
 
+from parrot.serve.lru_cache import LRUCache
 
 logger = get_logger("ContextManager")
 
@@ -38,6 +39,7 @@ class PrefixCache:
 
         # reversed dict for freeing context.
         self._prefix_ctx_map_reversed: Dict[int, str] = {}
+        self.lru = LRUCache(2000) # prefix hash to length
 
     def get_cached_prefix_context(self, prefix_hash: str) -> int:
         """Get the context id of a prefix from the cache.
@@ -48,10 +50,10 @@ class PrefixCache:
         Returns:
             The context id of the prefix. If the prefix is not in the cache, return NONE_CONTEXT_ID.
         """
-
+        self.lru.get(prefix_hash)
         return self._prefix_ctx_map.get(prefix_hash, NONE_CONTEXT_ID)
 
-    def cache_prefix_context(self, prefix_hash: str, context_id: int) -> None:
+    def cache_prefix_context(self, prefix_hash: str, context_id: int, text= "", context: Context = None) -> List[Context]:
         """Cache contexts of the prefix.
 
         Args:
@@ -63,8 +65,11 @@ class PrefixCache:
             prefix_hash not in self._prefix_ctx_map, "Prefix should not be cached."
         )
         print("Adding context", prefix_hash, context_id)
+        to_remove = self.lru.put(prefix_hash, (len(text), context))
         self._prefix_ctx_map[prefix_hash] = context_id
         self._prefix_ctx_map_reversed[context_id] = prefix_hash
+        return to_remove
+
 
     def remove_context_id(self, context_id: int) -> None:
         """Remove the context id of a prefix."""
@@ -74,8 +79,9 @@ class PrefixCache:
             # print("before pop", self._prefix_ctx_map, context_id)
             self._prefix_ctx_map.pop(prefix_hash)
             # print("after pop", self._prefix_ctx_map, context_id)
-
             self._prefix_ctx_map_reversed.pop(context_id)
+            self.lru.pop(prefix_hash)
+
 
 class ServeCoreContextManager:
     """Manage all contexts in the ServeLayer.
@@ -278,7 +284,12 @@ class ServeCoreContextManager:
             task.contexts.append(context)
             # Cache the context, if it's the prefix.
             if not node.is_gen:
-                prefix_cache.cache_prefix_context(prefix_hash, context.context_id)
+                context.is_constant = node.sv.is_constant_prefix
+                contexts_to_free = prefix_cache.cache_prefix_context(prefix_hash, context.context_id, node._sv._content, context)
+                for to_free in contexts_to_free:
+                    print("after put freeing", to_free.context_id)
+                    if not self._context_ref_counter[to_free.context_id]:
+                        self.free_context(to_free)
 
     def free_task_contexts(self, task: CompletionTask) -> None:
         """Free the contexts of a task."""
@@ -307,11 +318,16 @@ class ServeCoreContextManager:
             var_id in self.constant_prefix_contexts,
             "Constant prefix variable should have contexts.",
         )
+        # if self.prefix_caches[]
+        number_of_unique_engines = set()
+        for context in self.constant_prefix_contexts[var_id]: # is it possible that different contexts in this list belong to different engines
+            engine_id = context.engine.engine_id
+            number_of_unique_engines.add(engine_id)
 
-        for context in self.constant_prefix_contexts[var_id]:
-            print("free_constant", 296, context.context_id, var_id)
-            self._free_context(context)
-
+            if self.prefix_caches[engine_id].lru.cached_length > 3000:
+                print("free_constant", 296, context.context_id, var_id)
+                self._free_context(context)
+        print("numer of unique engines for var constant prefix", len(number_of_unique_engines))
         self.constant_prefix_contexts.pop(var_id)
 
     # ---------- For Scheduler ----------
