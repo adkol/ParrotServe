@@ -13,6 +13,7 @@ from parrot.serve.backend_repr import Context, ExecutionEngine
 from parrot.serve.scheduler import CompletionTask
 
 from parrot.serve.lru_cache import LRUCache
+from parrot.serve.tokenizer_wrapper import TokenizersWrapper
 
 logger = get_logger("ContextManager")
 
@@ -32,14 +33,16 @@ class PrefixCache:
     {{sv0}}{{sv1}}{{sv2}} -> Context2
     {{sv0}}{{sv1}}{{sv3}} -> Context3
     """
-
-    def __init__(self):
+    tokenizer_name = ""
+    def __init__(self, tokenizer):
         # prefix hash -> context id.
         self._prefix_ctx_map: Dict[str, int] = {}
+        self.tokenizer : TokenizersWrapper = tokenizer
 
         # reversed dict for freeing context.
         self._prefix_ctx_map_reversed: Dict[int, str] = {}
         self.lru = LRUCache(2000) # prefix hash to length
+
 
     def get_cached_prefix_context(self, prefix_hash: str) -> int:
         """Get the context id of a prefix from the cache.
@@ -65,7 +68,9 @@ class PrefixCache:
             prefix_hash not in self._prefix_ctx_map, "Prefix should not be cached."
         )
         print("Adding context", prefix_hash, context_id)
-        to_remove = self.lru.put(prefix_hash, (len(text), context))
+        tokenized_dict = self.tokenizer.tokenize_all(text)
+        
+        to_remove = self.lru.put(prefix_hash, (len(tokenized_dict[self.tokenizer_name]), context))
         self._prefix_ctx_map[prefix_hash] = context_id
         self._prefix_ctx_map_reversed[context_id] = prefix_hash
         return to_remove
@@ -117,7 +122,7 @@ class ServeCoreContextManager:
 
         # engine_id -> PrefixCache
         self.prefix_caches: Dict[int, PrefixCache] = {}
-
+        self.tokenizers_wrapper = None
     @staticmethod
     def _hash_var_id(var_id: str) -> str:
         return f"{_PREFIX_HASH_BRACKET_LEFT}{var_id}{_PREFIX_HASH_BRACKET_RIGHT}"
@@ -285,6 +290,7 @@ class ServeCoreContextManager:
             # Cache the context, if it's the prefix.
             if not node.is_gen:
                 context.is_constant = node.sv.is_constant_prefix
+                context.prefix_hash = prefix_hash
                 contexts_to_free = prefix_cache.cache_prefix_context(prefix_hash, context.context_id, node._sv._content, context)
                 for to_free in contexts_to_free:
                     print("after put freeing", to_free.context_id)
@@ -409,7 +415,7 @@ class ServeCoreContextManager:
     def register_engine_prefix_cache(self, engine_id: int):
         """Register the prefix cache of an engine."""
 
-        self.prefix_caches[engine_id] = PrefixCache()
+        self.prefix_caches[engine_id] = PrefixCache(self.tokenizers_wrapper)
 
     def remove_engine_prefix_cache(self, engine_id: int):
         """Remove the prefix cache of an engine."""

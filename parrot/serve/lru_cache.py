@@ -8,7 +8,6 @@ class LRUCache:
         self.cached_length = 0
 
     def get(self, key: int) -> int:
-        return
         if key not in self.dic:
             return -1
 
@@ -27,11 +26,13 @@ class LRUCache:
         self.cached_length -= val[0]
         
         return val
-
+    # (len(string), context) -> (len(tokenized), context)
     def put(self, key: int, value: int) -> list: # list of context id it had to pop
-        self.cached_length += value[0]
+        
         if key in self.dic:
             self.dic.move_to_end(key)
+        else:
+            self.cached_length += value[0]
 
         self.dic[key] = value
         # to_remove = []

@@ -48,6 +48,7 @@ class Context:
 
         # The number of tokens this context (don't include its parent) holds.
         self.tokens_num = 0
+        self.prefix_hash = ""
 
     @property
     def has_parent_context(self) -> bool:

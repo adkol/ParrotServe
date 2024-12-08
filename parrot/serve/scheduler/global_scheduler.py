@@ -16,10 +16,15 @@ from ..engine_manager import EngineManager
 from ..context_manager import ServeCoreContextManager
 from .completion_task import CompletionTask, TaskStatus
 from ..variable_manager import SemanticVariableManager
-
+from ..context_manager import PrefixCache
 logger = get_logger("GlobalScheduler")
 
 MAX_DELAY_THRESHOLD = 800
+DELAY_SCHEDULING_ON = True
+MAX_GROUP_LEN = 1
+MAX_TASKS_ENGINE = 10
+MAX_TOKENS_PER_ENGINE = 1400
+
 @dataclass
 class GlobalSchedulerConfig:
     app_fifo: bool = False
@@ -27,7 +32,6 @@ class GlobalSchedulerConfig:
     ctx_group: bool = False
     ctx_aware: bool = False
     max_queue_size: int = 1024
-MAX_TOKENS_PER_ENGINE = 22000
 
 class GlobalScheduler:
     """GlobalScheduler (GS) solves the task scheduling problem in the global scope."""
@@ -43,6 +47,8 @@ class GlobalScheduler:
         self.config = config
         self.engine_mgr = engine_mgr
         self.context_mgr = context_mgr
+        self.context_mgr.tokenizers_wrapper = engine_mgr.tokenizers_wrapper
+        PrefixCache.tokenizer_name = "hf-internal-testing/llama-tokenizer"
         self.var_mgr = var_mgr
         # ---------- Task Queue ----------
         self.task_queue: List[CompletionTask] = []
@@ -80,29 +86,32 @@ class GlobalScheduler:
             # Check whether it violates the tasks_num_upperbound of the tasks.
             # NOTE(chaofan): For TaskGroup (i.e. tasks passed to this function),
             # the whole group is considered as a single task.
-            if 1 + engine.get_num_tasks() > 6:
+            if 1 + engine.get_num_tasks() > 10:
                 return False
 
             # Check whether it violates the tasks_num_upperbound of the engine.
-            if len(tasks) + engine.get_num_tasks() > 6:
+            if len(tasks) + engine.get_num_tasks() > 15:
                 return False
 
             # Check whether the engine has enough task capacity.
             if len(tasks) > engine.get_remain_tasks_capacity():
                 return False
-
-            # if model_type == ModelType.TOKEN_ID:
-            #     total_tokens_num = 0
-            #     for task in tasks:
-            #         total_tokens_num += task.get_token_nums(engine.model.tokenizer_name)
-
-            #     # Check whether the engine has enough token capacity.
-            #     print("total tokens", total_tokens_num, "token capacity", engine.get_remain_tokens_capacity())
-            #     if total_tokens_num > engine.get_remain_tokens_capacity():
-            #         return False
+            total_tokens_num = 0
+            if model_type == ModelType.TOKEN_ID:
+                for task in tasks:        
+                    total_tokens_num += task.get_token_nums(engine.model.tokenizer_name)                    
+                    # total_tokens_num -= 
+                # Check whether the engine has enough token capacity.
+                # print("total tokens", total_tokens_num, "token capacity", engine.get_remain_tokens_capacity())
+                
             #-------------------------------------------------
             print("CACHED LENGTH", self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length)
-            if self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length > MAX_TOKENS_PER_ENGINE: # can try lowering this
+            increment_from_tasks = total_tokens_num
+            for context in tasks[0].contexts:
+                if context.is_constant and context.prefix_hash in self.context_mgr.prefix_caches[engine.engine_id].lru.dic:
+                    increment_from_tasks -= len(tasks)*self.context_mgr.prefix_caches[engine.engine_id].lru.dic[context.prefix_hash][0]
+            print("increment from tasks", increment_from_tasks)
+            if self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length + increment_from_tasks > MAX_TOKENS_PER_ENGINE: # can try lowering this
                 # print("full")
                 # return False
             #     # if this stops it from failing, then add a line here to free unused prefixes
@@ -112,9 +121,9 @@ class GlobalScheduler:
             #     #     self.context_mgr.free_constant_prefix_contexts(var.id)
             #     # self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length
             #     # item is prefix hash: length, context
-                need_to_free = self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length - MAX_TOKENS_PER_ENGINE
-                need_to_free *= 2
-                items = list(self.context_mgr.prefix_caches[engine.engine_id].lru.dic.keys())
+                need_to_free = self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length + increment_from_tasks - MAX_TOKENS_PER_ENGINE
+                need_to_free *= 1.5
+                items = list(self.context_mgr.prefix_caches[engine.engine_id].lru.dic.keys())[::-1]
                 for key in items:
                     value = self.context_mgr.prefix_caches[engine.engine_id].lru.dic[key]
                     if value[1].is_constant and self.context_mgr._context_ref_counter[value[1].context_id] == 1:
@@ -123,11 +132,20 @@ class GlobalScheduler:
                     need_to_free -= value[0]
                     if need_to_free <= 0:
                         break
-
+                
                 # 3955 > MAX_TOKENS_PER_ENGINE, freeing 1000, try freeing 2k
             # return True
-                return self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length < MAX_TOKENS_PER_ENGINE
+            #     return False
+                if need_to_free > 0:
+                    return False
+                # return self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length < MAX_TOKENS_PER_ENGINE
             return True
+         
+        # sorted_engine_list = sorted(engine_list, key=lambda x: int(x in engines_with_prefix), reverse=True)
+        # for engine in sorted_engine_list:
+        #     if check_engine_available(engine):
+        #         return [engine]
+        # return []
         toret = [engine for engine in engine_list if check_engine_available(engine)]
         toret.sort(key=lambda x: x.get_num_tasks())
         print("Engines Availabe", [x.engine_id for x in toret])
@@ -211,7 +229,7 @@ class GlobalScheduler:
                 ):
                     best_engine = engine
         print("engine id with prefix", engine_ids_with_prefixes)
-        if False and MAX_DELAY_THRESHOLD > max_counter and not optimal_engine_found and engine_ids_with_prefixes:
+        if DELAY_SCHEDULING_ON and MAX_DELAY_THRESHOLD > max_counter and not optimal_engine_found and engine_ids_with_prefixes:
             for task in tasks:
                 # print("DELAYING")
                 task.delay_counter += 1
@@ -225,9 +243,10 @@ class GlobalScheduler:
         #print("Scheduled on: ", best_engine.engine_id)
         self.most_delay = max(max_counter, self.most_delay)
         print("Max counter: ", self.most_delay)
+        # sum([ for t in tasks])
         for task in tasks:
-            print("scheduling contexts", [context.context_id for context in task.contexts if context.is_constant])
-        
+            # print("scheduling contexts", [context.context_id for context in task.contexts if context.is_constant])
+            print("scheduled length", self.context_mgr.prefix_caches[best_engine.engine_id].lru.cached_length)
             task.schedule_to(best_engine)
         self.total_scheduled += len(tasks)
         if not optimal_engine_found:
@@ -286,7 +305,6 @@ class GlobalScheduler:
 
                     # TODO(chaofan): Criteria match check. Only group tasks with the same criteria.
 
-                    MAX_GROUP_LEN = 6
                     if graph_group_enabled:
                         chain_groups_j = set(task_j.chain.chain_groups)
                         common_groups = chain_groups.intersection(chain_groups_j)
