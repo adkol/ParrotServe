@@ -22,7 +22,7 @@ logger = get_logger("GlobalScheduler")
 MAX_DELAY_THRESHOLD = 800
 DELAY_SCHEDULING_ON = True
 MAX_GROUP_LEN = 1
-MAX_TASKS_ENGINE = 6
+MAX_TASKS_ENGINE = 4
 MAX_TOKENS_PER_ENGINE = 4000
 NOTFREEALL = True
 
@@ -112,6 +112,8 @@ class GlobalScheduler:
             for context in tasks[0].contexts:
                 if context.is_constant and context.prefix_hash in self.context_mgr.prefix_caches[engine.engine_id].lru.dic:
                     increment_from_tasks -= len(tasks)*self.context_mgr.prefix_caches[engine.engine_id].lru.dic[context.prefix_hash][0]
+                # else:
+                #     increment_from_tasks -= (len(tasks) - 1) *self.context_mgr.prefix_caches[engine.engine_id].lru.dic[context.prefix_hash][0]
             print("increment from tasks", increment_from_tasks)
             if self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length + increment_from_tasks > MAX_TOKENS_PER_ENGINE: # can try lowering this
                 print("full")
@@ -126,11 +128,11 @@ class GlobalScheduler:
                 need_to_free = self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length + increment_from_tasks - MAX_TOKENS_PER_ENGINE
                 need_to_free *= 1.5
                 items = list(self.context_mgr.prefix_caches[engine.engine_id].lru.dic.keys())[::-1]
-                for key in items:
+                for key in items: # loop through all current prefixes in the engine
                     value = self.context_mgr.prefix_caches[engine.engine_id].lru.dic[key]
-                    if value[1].is_constant and self.context_mgr._context_ref_counter[value[1].context_id] == 1:
+                    if value[1].is_constant and self.context_mgr._context_ref_counter[value[1].context_id] == 1: # check which ones we can evict
                         print("GLOBAL SCHEULER FREEING ", value[1].context_id)
-                        self.context_mgr._free_context(value[1])
+                        self.context_mgr._free_context(value[1]) #evict
                     need_to_free -= value[0]
                     if NOTFREEALL:
                         if need_to_free <= 0:
