@@ -19,10 +19,10 @@ from ..variable_manager import SemanticVariableManager
 from ..context_manager import PrefixCache
 logger = get_logger("GlobalScheduler")
 
-MAX_DELAY_THRESHOLD = 800
+MAX_DELAY_THRESHOLD = 100
 DELAY_SCHEDULING_ON = True
 MAX_GROUP_LEN = 1
-MAX_TASKS_ENGINE = 4
+MAX_TASKS_ENGINE = 5
 MAX_TOKENS_PER_ENGINE = 4000
 NOTFREEALL = True
 
@@ -93,6 +93,7 @@ class GlobalScheduler:
 
             # Check whether it violates the tasks_num_upperbound of the engine.
             if len(tasks) + engine.get_num_tasks() > MAX_TASKS_ENGINE:
+                print("too many tasks", 1)
                 return False
 
             # Check whether the engine has enough task capacity.
@@ -107,14 +108,14 @@ class GlobalScheduler:
                 # print("total tokens", total_tokens_num, "token capacity", engine.get_remain_tokens_capacity())
                 
             #-------------------------------------------------
-            print("CACHED LENGTH", self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length)
+            # print("CACHED LENGTH", self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length)
             increment_from_tasks = total_tokens_num
             for context in tasks[0].contexts:
                 if context.is_constant and context.prefix_hash in self.context_mgr.prefix_caches[engine.engine_id].lru.dic:
                     increment_from_tasks -= len(tasks)*self.context_mgr.prefix_caches[engine.engine_id].lru.dic[context.prefix_hash][0]
-                # else:
-                #     increment_from_tasks -= (len(tasks) - 1) *self.context_mgr.prefix_caches[engine.engine_id].lru.dic[context.prefix_hash][0]
-            print("increment from tasks", increment_from_tasks)
+                else:
+                    increment_from_tasks -= (len(tasks) - 1) *self.context_mgr.prefix_caches[engine.engine_id].lru.dic[context.prefix_hash][0]
+            # print("increment from tasks", increment_from_tasks)
             if self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length + increment_from_tasks > MAX_TOKENS_PER_ENGINE: # can try lowering this
                 print("full")
                 # return False

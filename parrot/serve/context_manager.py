@@ -67,7 +67,7 @@ class PrefixCache:
         parrot_assert(
             prefix_hash not in self._prefix_ctx_map, "Prefix should not be cached."
         )
-        print("Adding context", prefix_hash, context_id)
+        # print("Adding context", prefix_hash, context_id)
         tokenized_dict = self.tokenizer.tokenize_all(text)
         
         to_remove = self.lru.put(prefix_hash, (len(tokenized_dict[self.tokenizer_name]), context))
@@ -78,7 +78,7 @@ class PrefixCache:
 
     def remove_context_id(self, context_id: int) -> None:
         """Remove the context id of a prefix."""
-        print("called removed_context context_manager.py", context_id, self._prefix_ctx_map_reversed)
+        # print("called removed_context context_manager.py", context_id, self._prefix_ctx_map_reversed)
         if context_id in self._prefix_ctx_map_reversed:
             prefix_hash = self._prefix_ctx_map_reversed[context_id]
             # print("before pop", self._prefix_ctx_map, context_id)
@@ -137,7 +137,7 @@ class ServeCoreContextManager:
         context = Context(context_id=context_id, engine=engine)
 
         self.contexts[context_id] = context
-        print("new context")
+        # print("new context")
         self._add_ref_counter(context)
 
         logger.debug(f"Context (context_id={context_id}) created.")
@@ -157,7 +157,7 @@ class ServeCoreContextManager:
         )
 
         self.contexts[context_id] = context
-        print("fork context")
+        # print("fork context")
         self._add_ref_counter(context)
 
         logger.debug(
@@ -166,7 +166,7 @@ class ServeCoreContextManager:
         return context
 
     def _free_context(self, context: Context) -> None:
-        print("freeing context", context.context_id, context.engine, self._context_ref_counter)
+        # print("freeing context", context.context_id, context.engine, self._context_ref_counter)
         context_id = context.context_id
         parrot_assert(
             context_id in self._context_ref_counter, "Context should have ref_counter."
@@ -195,14 +195,14 @@ class ServeCoreContextManager:
 
         # Remove context from the PrefixCache.
         prefix_cache = self.prefix_caches[engine.engine_id]
-        print("removing context id", context_id)
+        # print("removing context id", context_id)
         prefix_cache.remove_context_id(context_id)
 
         # Remove context from the Manager.
-        print("code reached this point on line 191")
-        print("before popping", context_id, self.contexts)
+        # print("code reached this point on line 191")
+        # print("before popping", context_id, self.contexts)
         self.contexts.pop(context_id)
-        print("after popping", context_id, self.contexts)
+        # print("after popping", context_id, self.contexts)
         self._context_id_pool.free(context_id)
 
     def _add_ref_counter(self, context: Context) -> None:
@@ -210,7 +210,7 @@ class ServeCoreContextManager:
         if context_id not in self._context_ref_counter:
             self._context_ref_counter[context_id] = 0
         self._context_ref_counter[context_id] += 1
-        print("add_ref_counter", self._context_ref_counter)
+        # print("add_ref_counter", self._context_ref_counter)
 
     # ---------- Memory Management Public Methods ----------
 
@@ -224,7 +224,7 @@ class ServeCoreContextManager:
             context.context_id in self.contexts,
             "Context should be in the context pool.",
         )
-        print("209")
+        # print("209")
 
         self._free_context(context)
 
@@ -254,7 +254,7 @@ class ServeCoreContextManager:
                 context_id = prefix_cache.get_cached_prefix_context(prefix_hash)
                 if context_id != NONE_CONTEXT_ID:
                     context = self.contexts[context_id]
-                    print("set task context")
+                    # print("set task context")
                     self._add_ref_counter(context)
                     task.contexts.append(context)
                     continue
@@ -275,7 +275,7 @@ class ServeCoreContextManager:
                         "Context should not be in the ref map.",
                     )
                     self.constant_prefix_contexts[node.sv.id].append(context)
-                    print("set tasks 264")
+                    # print("set tasks 264")
                     self._add_ref_counter(context)
             # If the node is not the first node in the chain.
             else:
@@ -293,7 +293,7 @@ class ServeCoreContextManager:
                 context.prefix_hash = prefix_hash
                 contexts_to_free = prefix_cache.cache_prefix_context(prefix_hash, context.context_id, node._sv._content, context)
                 for to_free in contexts_to_free:
-                    print("after put freeing", to_free.context_id)
+                    # print("after put freeing", to_free.context_id)
                     if not self._context_ref_counter[to_free.context_id]:
                         self.free_context(to_free)
 
@@ -309,14 +309,14 @@ class ServeCoreContextManager:
         for context in reversed(task.contexts):
             if context.context_id in visited_contexts:
                 continue
-            print("284")
+            # print("284")
 
             self._free_context(context)
             visited_contexts.add(context.context_id)
 
     def free_constant_prefix_contexts(self, var_id: str) -> None:
         """Free the contexts of a constant prefix variable."""
-        print("Freeing var:", var_id)
+        # print("Freeing var:", var_id)
         if var_id not in self.constant_prefix_contexts:
             return
         print(var_id, self.constant_prefix_contexts)
@@ -331,9 +331,9 @@ class ServeCoreContextManager:
             number_of_unique_engines.add(engine_id)
 
             if self.prefix_caches[engine_id].lru.cached_length > 3000:
-                print("free_constant", 296, context.context_id, var_id)
+                # print("free_constant", 296, context.context_id, var_id)
                 self._free_context(context)
-        print("numer of unique engines for var constant prefix", len(number_of_unique_engines))
+        # print("numer of unique engines for var constant prefix", len(number_of_unique_engines))
         self.constant_prefix_contexts.pop(var_id)
 
     # ---------- For Scheduler ----------
@@ -367,7 +367,7 @@ class ServeCoreContextManager:
                     sort_dict[engine_id] += 1
                 else:
                     break
-        print(sort_dict)
+        # print(sort_dict)
         return sorted(sort_dict, key=lambda x: sort_dict[x], reverse=True)
 
     # ---------- Profiling ----------
@@ -407,7 +407,7 @@ class ServeCoreContextManager:
 
         session_ctxs = self.session_contexts[session_id]
         for ctx in session_ctxs:
-            print("372")
+            # print("372")
             self._free_context(ctx)
 
         self.session_contexts.pop(session_id)
