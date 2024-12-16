@@ -1,0 +1,5 @@
+no dbl count
+no delay
+max task engine: 6
+max token: 4000
+max group len: 1 

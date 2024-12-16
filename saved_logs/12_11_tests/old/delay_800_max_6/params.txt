@@ -1,0 +1,4 @@
+delay 800
+no dbl counting
+max task engine 6
+max group len 1

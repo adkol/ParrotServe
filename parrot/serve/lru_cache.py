@@ -35,16 +35,4 @@ class LRUCache:
             self.cached_length += value[0]
 
         self.dic[key] = value
-        # to_remove = []
-        # while self.cached_length > self.capacity :
-        #     popped_hash, popped_value = self.dic.popitem(False)
-        #     self.cached_length -= popped_value[0]
-
-        #     to_remove.append(popped_value[1])
         return []
-
-
-# Your LRUCache object will be instantiated and called as such:
-# obj = LRUCache(capacity)
-# param_1 = obj.get(key)
-# obj.put(key,value)

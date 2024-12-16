@@ -21,9 +21,9 @@ logger = get_logger("GlobalScheduler")
 
 MAX_DELAY_THRESHOLD = 800
 DELAY_SCHEDULING_ON = True
-MAX_GROUP_LEN = 1
-MAX_TASKS_ENGINE = 4
-MAX_TOKENS_PER_ENGINE = 5000
+MAX_GROUP_LEN = 4
+MAX_TASKS_ENGINE = 6 
+MAX_TOKENS_PER_ENGINE = 7500
 NOTFREEALL = True
 
 @dataclass
@@ -58,9 +58,6 @@ class GlobalScheduler:
         self.total_scheduled = 0
         self.most_delay = 0
 
-        # bad, impossible(new prefix), good
-        # good / total
-
     def _get_engine_list(
         self,
         tasks: List[CompletionTask],
@@ -88,12 +85,10 @@ class GlobalScheduler:
             # NOTE(chaofan): For TaskGroup (i.e. tasks passed to this function),
             # the whole group is considered as a single task.
             if 1 + engine.get_num_tasks() > MAX_TASKS_ENGINE:
-                print("too many tasks")
                 return False
 
             # Check whether it violates the tasks_num_upperbound of the engine.
             if len(tasks) + engine.get_num_tasks() > MAX_TASKS_ENGINE:
-                print("too many tasks", 1)
                 return False
 
             # Check whether the engine has enough task capacity.
@@ -103,11 +98,6 @@ class GlobalScheduler:
             if model_type == ModelType.TOKEN_ID:
                 for task in tasks:        
                     total_tokens_num += task.get_token_nums(engine.model.tokenizer_name)                    
-                    # total_tokens_num -= 
-                # Check whether the engine has enough token capacity.
-                # print("total tokens", total_tokens_num, "token capacity", engine.get_remain_tokens_capacity())
-                
-            #-------------------------------------------------
             # print("CACHED LENGTH", self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length)
             increment_from_tasks = total_tokens_num
             for context in tasks[0].contexts:
@@ -117,34 +107,20 @@ class GlobalScheduler:
                     increment_from_tasks -= (len(tasks) - 1) *self.context_mgr.prefix_caches[engine.engine_id].lru.dic[context.prefix_hash][0]
             # print("increment from tasks", increment_from_tasks)
             if self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length + increment_from_tasks > MAX_TOKENS_PER_ENGINE: # can try lowering this
-                print("full")
-                # return False
-            #     # if this stops it from failing, then add a line here to free unused prefixes
-            #     # print("fail here", self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length)
-            #     # expired_vars = self.var_mgr.free_expired_constant_prefix_vars()
-            #     # for var in expired_vars:
-            #     #     self.context_mgr.free_constant_prefix_contexts(var.id)
-            #     # self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length
-            #     # item is prefix hash: length, context
                 need_to_free = self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length + increment_from_tasks - MAX_TOKENS_PER_ENGINE
                 need_to_free *= 1.5
                 items = list(self.context_mgr.prefix_caches[engine.engine_id].lru.dic.keys())[::-1]
                 for key in items: # loop through all current prefixes in the engine
                     value = self.context_mgr.prefix_caches[engine.engine_id].lru.dic[key]
                     if value[1].is_constant and self.context_mgr._context_ref_counter[value[1].context_id] == 1: # check which ones we can evict
-                        print("GLOBAL SCHEULER FREEING ", value[1].context_id)
+                        # print("GLOBAL SCHEULER FREEING ", value[1].context_id)
                         self.context_mgr._free_context(value[1]) #evict
                     need_to_free -= value[0]
                     if NOTFREEALL:
                         if need_to_free <= 0:
-                            break
-                
-                # 3955 > MAX_TOKENS_PER_ENGINE, freeing 1000, try freeing 2k
-            # return True
-            #     return False
+                            break                
                 if need_to_free > 0:
                     return False
-                # return self.context_mgr.prefix_caches[engine.engine_id].lru.cached_length < MAX_TOKENS_PER_ENGINE
             return True
          
         sorted_engine_list = sorted(engine_list, key=lambda x: int(x in engines_with_prefix), reverse=True)
@@ -178,32 +154,6 @@ class GlobalScheduler:
 
         if len(engine_list) == 0:
             return
-
-        # if len(engine_list) == 0:
-        #     if len(tasks) == 1:
-        #         return
-        #     else:
-        #         # Split the group
-        #         for task in tasks:
-        #             self._find_engine([task])
-        #         return
-
-        # Get the engines with Context
-        # We use the first task's context to find the engines with the same context
-        
-        # [same context, sameprefix] ["a{}", "bbbb{}", "c{}"] ->taask group if you do graph group enabled,   {1:[a], 2:[a,bbbb]}
-        # print(engine_ids_with_prefixes)
-        # COMMENT: see you can improve the task[0] thing, 
-        # or match it to biggest prefix, also measuere impossible
-        # print(engine_ids_with_prefixes)
-        # from the ready engines, check which has a prefix
-        # just put it in the one with best prefix, and let it scheddule it later - by setting delay parameter to a 10000000
-        # 3 req prefix a, 1 req prefix a 
-        # same capacity, same load
-        # do you want to build sticky machines, 
-        # how do you balance stickyness 
-        # dag optimizations, ask moshi or search it up
-        # throughput vs latency, vy controlling batchsize on diff machiens
 
         best_engine = None
         max_counter = max(task.delay_counter for task in tasks)
@@ -248,11 +198,11 @@ class GlobalScheduler:
         assert best_engine is not None
         #print("Scheduled on: ", best_engine.engine_id)
         self.most_delay = max(max_counter, self.most_delay)
-        print("Max counter: ", self.most_delay)
+        print("Max counter: ", self.most_delay, max_counter)
         # sum([ for t in tasks])
         for task in tasks:
             # print("scheduling contexts", [context.context_id for context in task.contexts if context.is_constant])
-            print("scheduled length", self.context_mgr.prefix_caches[best_engine.engine_id].lru.cached_length)
+            # print("scheduled length", self.context_mgr.prefix_caches[best_engine.engine_id].lru.cached_length)
             task.schedule_to(best_engine)
         self.total_scheduled += len(tasks)
         if not optimal_engine_found:
@@ -330,26 +280,7 @@ class GlobalScheduler:
 
             # Try to find engines for the group
             self._find_engine(cur_group)
-            # 3 summarzers
-            # 1
-            #
-            '''
-            asd
-            asdfadsfasdf
-            10 summarizer tasks -> togther, on throughput machine
 
-            1 final summarizer task based on input of prev 10, on some latency machine, but after the 
-
-            once you delay something, set/dict
-            next schedule gets called
-            [dealyed, new, new, new]
-            [ l........]
-            [[d1, n1, d2], ...]
-            dict task : delayed counter
-            
-            max counter
-
-            '''
         # Update the task queue
         prev_task_queue = self.task_queue
         scheduled_task = [task for task in prev_task_queue if task.is_scheduled]
@@ -378,75 +309,3 @@ class GlobalScheduler:
 
 
 
-# We are in the process of testing our delay scheduling changes that are meant to increase data locality for prefix sharing but we wanted your suggestions on any general DAG scheudling optimizations we could try for parrot? 
-# We feel there might be more avenues to optimize end to end request through DAG based optimization, but were wondering what kind of optimizations we might be able to look into for this?
-    '''
-    Split up group if graph group enabled in find engine, since for graph group it doesn't need to run on same engine, it just needs to finish at same time
-    Do both context and graph group enabled
-
-
-    {keshav ideas}:
-    Implement other scheduling principles at higher level:
-    1). We are looking at delay scheduling right now. We should think about our change carefully and see how effective this will be
-        and how it fits into the code. We can also look into other ways to implement delay scheduling.
-    2). We can build some notion of fairness or maybe QOE (second one is way harder) for end-to-end application. Previous works focus on 
-        request level fairness but we do not care about that I think. Also might be interesting to look into starvation, but that might have 
-        less scope.
-
-    chain style - so previously we had task group and context scheduling but now we have chain -group
-
-
-    aryan
-    do they even do performance criteria scheduling
-    eary summary throughput
-    what is graph group, is it one task group or the same query
-
-    could it be good to split task groups
-    since you are fine with delaying the tasks that are earlier in the chain, can you make those throughput requests
-
-    -interleaved is bad?? 
-    task group, context
-
-
-    (A) -> b -> d -> c -> d : latency
-    x ->latency
-
-    b -> d -> c -> d -> throughput
-    y  ->throughput
-
-    ------------- next round
-    b -> d -> c ->
-    y -> free latecy machine because u didnt put A on it
-    -----------------------------
-    if throughput is 1 can look at context group
-
-    if current group is too big, too many input tokens, to calculate this - only count shared prefixes once
-
-    split up your task group so things go on machines with context
-
-
-    a - b ->c ->d
-            x  -> dis time long as hell -> d
-            y -> d
-            z -> d
-            w -> d
-
-    a - b ->c ->d
-        z    x  -> dis time long as hell -> d
-        w    y -> d
-            
-
-    huge database async
-
-    small call
-
-    chat things were small input large output
-    summarization large input small output
-    coding is large input small output
-
-    ask moshi about other dag optimizatino cuz he said he invented parrot and did dag stuff 
-    look into batch size stuff
-    look into how to detect prefix sharing
-
-
-    '''

@@ -224,7 +224,6 @@ class ServeCoreContextManager:
             context.context_id in self.contexts,
             "Context should be in the context pool.",
         )
-        # print("209")
 
         self._free_context(context)
 
@@ -254,7 +253,6 @@ class ServeCoreContextManager:
                 context_id = prefix_cache.get_cached_prefix_context(prefix_hash)
                 if context_id != NONE_CONTEXT_ID:
                     context = self.contexts[context_id]
-                    # print("set task context")
                     self._add_ref_counter(context)
                     task.contexts.append(context)
                     continue
@@ -309,7 +307,6 @@ class ServeCoreContextManager:
         for context in reversed(task.contexts):
             if context.context_id in visited_contexts:
                 continue
-            # print("284")
 
             self._free_context(context)
             visited_contexts.add(context.context_id)
@@ -324,16 +321,13 @@ class ServeCoreContextManager:
             var_id in self.constant_prefix_contexts,
             "Constant prefix variable should have contexts.",
         )
-        # if self.prefix_caches[]
         number_of_unique_engines = set()
         for context in self.constant_prefix_contexts[var_id]: # is it possible that different contexts in this list belong to different engines
             engine_id = context.engine.engine_id
             number_of_unique_engines.add(engine_id)
 
             if self.prefix_caches[engine_id].lru.cached_length > 3000:
-                # print("free_constant", 296, context.context_id, var_id)
                 self._free_context(context)
-        # print("numer of unique engines for var constant prefix", len(number_of_unique_engines))
         self.constant_prefix_contexts.pop(var_id)
 
     # ---------- For Scheduler ----------
@@ -367,7 +361,6 @@ class ServeCoreContextManager:
                     sort_dict[engine_id] += 1
                 else:
                     break
-        # print(sort_dict)
         return sorted(sort_dict, key=lambda x: sort_dict[x], reverse=True)
 
     # ---------- Profiling ----------
@@ -407,7 +400,6 @@ class ServeCoreContextManager:
 
         session_ctxs = self.session_contexts[session_id]
         for ctx in session_ctxs:
-            # print("372")
             self._free_context(ctx)
 
         self.session_contexts.pop(session_id)

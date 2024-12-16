@@ -108,7 +108,7 @@ class BlockContext(LowLevelContext):
         self.token_ids.append(token_id)
 
     def get_context_block_ids(self) -> List[int]:
-        """Return the context block ids."""
+        """Return the context ."""
 
         parent_block_ids = (
             self.parent_context.get_context_block_ids() if self.parent_context else []

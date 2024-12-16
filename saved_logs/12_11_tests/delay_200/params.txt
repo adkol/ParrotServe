@@ -1,0 +1,6 @@
+MAX_DELAY_THRESHOLD = 200
+DELAY_SCHEDULING_ON = True
+MAX_GROUP_LEN = 4
+MAX_TASKS_ENGINE = 6 # maybe u can increase for 800
+MAX_TOKENS_PER_ENGINE = 5500 # set to 6500 for delay, setting incrememnt to 0 and this to 5000 was p optimal, but failed on no delay, i set it to 5k for non delay and it worked will log that
+NOTFREEALL = True

@@ -1,0 +1,4 @@
+no dbl
+delay count 600
+max task engine 6
+max task gropu len 1

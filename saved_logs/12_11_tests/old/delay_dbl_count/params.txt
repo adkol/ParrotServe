@@ -1,0 +1,4 @@
+delay count: 800
+max tasks engine: 4
+dbl counting on
+
